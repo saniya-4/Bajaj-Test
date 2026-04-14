@@ -1,51 +1,22 @@
 # BFHL API
 
 REST API implementation for:
-
 - `POST /bfhl`
 - `GET /health`
-- `GET /`
 
-Built with **Java 17** and **Spring Boot 3**.
-
-## Prerequisites
-
-- JDK 17+
-- Apache Maven 3.9+
+Built with Node.js + Express.
 
 ## Setup
 
-1. Create environment file (optional; you can also set OS env vars):
-
-   - Copy `.env.example` to `.env` and load values into your shell, **or**
-   - Set `EMAIL` and `GEMINI_API_KEY` in your environment.
-
-2. Spring Boot reads:
-
-   - `EMAIL` → official email in responses
-   - `GEMINI_API_KEY` → Gemini API key for the `AI` operation
-   - `PORT` → server port (default **3000**)
-
-   On Windows PowerShell:
-
-   ```powershell
-   $env:EMAIL="your.chitkara.email@chitkara.edu.in"
-   $env:GEMINI_API_KEY="your_gemini_key"
-   $env:PORT="3000"
-   ```
-
-## Run locally
-
-```bash
-mvn spring-boot:run
-```
-
-Or build and run the JAR:
-
-```bash
-mvn -q -DskipTests package
-java -jar target/bfhl-api-1.0.0.jar
-```
+1. Install dependencies:
+   - `npm install`
+2. Create environment file:
+   - Copy `.env.example` to `.env`
+3. Add values:
+   - `EMAIL=your.chitkara.email@chitkara.edu.in`
+   - `GEMINI_API_KEY=your_gemini_key`
+4. Start server:
+   - `npm start`
 
 ## API Contracts
 
@@ -134,16 +105,14 @@ curl -X POST http://localhost:3000/bfhl \
 
 ## Deployment
 
-Set environment variables on your host:
+This project can be deployed on Vercel, Railway, or Render.
 
+Set environment variables on your host:
 - `EMAIL`
 - `GEMINI_API_KEY`
 - `PORT` (if required by host)
 
-Build a JAR and deploy to any JVM host (Railway, Render, Fly.io, etc.).
-
 After deployment, verify:
-
 - `GET https://<your-domain>/health`
 - `POST https://<your-domain>/bfhl`
 
